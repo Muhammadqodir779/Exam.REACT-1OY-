@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "./App.css"
 import Sidebar from './components/sidebar/Sidebar';
 import group_10 from "./assets/Group_10.png"
 import group_11 from "./assets/Group_11.png"
 import group_12 from "./assets/Group_12.png"
 import { Route, Routes } from 'react-router-dom';
-import overview from "./assets/Overview (1).png"
-import customer from "./assets/Customers.png"
-import product from "./assets/Product.png"
+import Home from './pages/home/Home';
+import Product from './pages/product/Product';
+import Customer from './pages/customer/Customer';
 
 
 const App = () => {
@@ -107,23 +107,15 @@ const App = () => {
           flexDirection: "column"
         }}>
 
-          <img src={overview} alt="" className='images_img1' style={{
-            marginLeft: "-400px"
-          }} />
-
-          <img src={customer} alt="" className='images_img2' style={{
-            marginLeft: "600px",
-            marginTop: "-500px"
-          }} />
-
-          <img src={product} alt="" className='images_img3' style={{
-            marginTop: "-70px",
-            marginLeft: "-50px"
-          }} />
-
         </div>
 
       </main>
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/product' element={<Product />} />
+        <Route path='/customer' element={<Customer />} />
+      </Routes>
 
     </div>
   )

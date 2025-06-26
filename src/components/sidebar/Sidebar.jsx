@@ -10,6 +10,7 @@ import {
   FaPercent,
   FaQuestion,
 } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 export default function Sidebar() {
@@ -20,16 +21,22 @@ export default function Sidebar() {
       <div className="brand" onClick={() => setOpen((p) => !p)}>
         <IoLogoApple size={22} className="menu-icon" />
         {open && (
-          <>
+          <div>
             <span className="title">Dashboard</span>
-          </>
+          </div>
         )}
       </div>
 
       <nav className="nav">
-        <NavItem icon={FaKey} label="Dashboard" active open={open} />
-        <NavItem icon={FaCube} label="Product" open={open} />
-        <NavItem icon={FaUser} label="Customers" open={open} />
+        <Link to={"/"}>
+          <NavItem icon={FaKey} label="Dashboard" active open={open} />
+        </Link>
+        <Link to={"/product"}>
+          <NavItem icon={FaCube} label="Product" open={open} />
+        </Link>
+        <Link to={"/customer"}>
+          <NavItem icon={FaUser} label="Customers" open={open} />
+        </Link>
         <NavItem icon={FaWallet} label="Income" open={open} />
         <NavItem icon={FaPercent} label="Promote" open={open} />
         <NavItem icon={FaQuestion} label="Help" open={open} />
