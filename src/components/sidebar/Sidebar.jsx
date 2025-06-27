@@ -28,13 +28,13 @@ export default function Sidebar() {
       </div>
 
       <nav className="nav">
-        <Link to={"/"}>
+        <Link to={"/dashboard"}>
           <NavItem icon={FaKey} label="Dashboard" active open={open} />
         </Link>
         <Link to={"/product"}>
           <NavItem icon={FaCube} label="Product" open={open} />
         </Link>
-        <Link to={"/customer"}>
+        <Link to={"/customer"} className=''>
           <NavItem icon={FaUser} label="Customers" open={open} />
         </Link>
         <NavItem icon={FaWallet} label="Income" open={open} />
@@ -73,12 +73,12 @@ export default function Sidebar() {
 
 function NavItem({ icon: Icon, label, active = false, open }) {
   return (
-    <a
+    <div
       href="#!"
       className={`nav-item ${active ? "active" : ""} ${open ? "" : "center"}`}
     >
       <Icon className="nav-icon" />
       {open && <span className="nav-text">{label}</span>}
-    </a>
+    </div>
   );
 }
